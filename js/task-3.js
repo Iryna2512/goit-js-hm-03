@@ -1,20 +1,15 @@
-function checkForSpam(message) {
-  const forbiddenWord1 = "spam";
-  const forbiddenWord2 = "sale";
-  if (
-    message.toLowerCase().includes(forbiddenWord1) ||
-    message.toLowerCase().includes(forbiddenWord2)
-  ) {
-    return true;
-  } else {
-    return false;
+function filterArray(numbers, value) {
+  const simpleArray = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > value) {
+      simpleArray.push(numbers[i]);
+    }
   }
+  return simpleArray;
 }
 
-console.log(checkForSpam("Latest technology news"));
-console.log(checkForSpam("JavaScript weekly newsletter"));
-console.log(checkForSpam("Get best sale offers now!"));
-console.log(checkForSpam("Amazing SalE, only tonight!"));
-console.log(checkForSpam("Trust me, this is not a spam message"));
-console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!"));
-console.log(checkForSpam("[SPAM] How to earn fast money?"));
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
